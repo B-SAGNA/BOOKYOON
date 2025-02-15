@@ -112,7 +112,7 @@ spring:
           enabled: false
     gateway:
       default-filters:
-        - JWTRelay
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
       discovery:
         locator:
           enabled: true
@@ -146,15 +146,15 @@ spring:
     basename: i18n/messages
   main:
     allow-bean-definition-overriding: true
-  webflux:
-    problemdetails:
-      enabled: true
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          authority-prefix: ''
-          authorities-claim-name: auth
+  #  webflux:
+  #    problemdetails:
+  #      enabled: true
+  #  security:
+  #    oauth2:
+  #      resourceserver:
+  #        jwt:
+  #          authority-prefix: ''
+  #          authorities-claim-name: auth
   task:
     execution:
       thread-name-prefix: bookyoon-gateway-task-
@@ -196,13 +196,13 @@ jhipster:
   clientApp:
     name: 'bookyoonGatewayApp'
   # By default CORS is disabled. Uncomment to enable.
-  # cors:
-  #   allowed-origins: "http://localhost:8100,http://localhost:9000"
-  #   allowed-methods: "*"
-  #   allowed-headers: "*"
-  #   exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
-  #   allow-credentials: true
-  #   max-age: 1800
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params'
+    allow-credentials: true
+    max-age: 1800
   mail:
     from: bookyoonGateway@localhost
   api-docs:
@@ -225,7 +225,7 @@ jhipster:
 # to have type-safe configuration, like in the JHipsterProperties above
 #
 # More documentation is available at:
-# https://www.jhipster.tech/common-application-properties/
+# s://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # application:

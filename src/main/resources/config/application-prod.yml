@@ -55,7 +55,7 @@ spring:
   r2dbc:
     url: r2dbc:mysql://localhost:3306/bookyoonGateway?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
     username: root
-    password: Passer2024
+    password:
   thymeleaf:
     cache: true
 
